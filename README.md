@@ -1,6 +1,6 @@
 1. Клонировать этот репозиторий 
 ```sh
-git clone http://
+git clone https://github.com/Gaarmr/bewise.ai
 ```
 2. Создать файл .env в корне проекта и описать переменные 
 ```ini
