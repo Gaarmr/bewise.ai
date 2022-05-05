@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app.app:app --reload --host 0.0.0.0' # reload
+    volumes: # rebild
+      - .:/app
+    ports:
+      - 8008:8000
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    depends_on:
+      - db
+  
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+
+volumes:
+  postgres_data:

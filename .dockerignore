@@ -1,0 +1,9 @@
+/.vscode
+/.idea
+/.venv
+/postgres-data
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
