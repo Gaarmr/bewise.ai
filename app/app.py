@@ -5,8 +5,7 @@ from app.models import QuestionQuery
 import httpx
 
 
-
-app = FastAPI(title="FastAPI, Docker, and Traefik")
+app = FastAPI(title="FastAPI, Docker")
 
 
 @app.get("/")

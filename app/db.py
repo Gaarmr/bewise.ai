@@ -22,5 +22,6 @@ class Questions(ormar.Model):
     answer: str = ormar.String(max_length=256, unique=False, nullable=False)
     created_at: str = ormar.DateTime(unique=False, nullable=False)
 
+
 engine = sqlalchemy.create_engine(settings.db_url)
 metadata.create_all(engine)
